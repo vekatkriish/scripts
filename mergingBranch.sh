@@ -1,5 +1,5 @@
 #!/bin/bash
-# $1 = giturl; $2 = frombranch ;$3 = tobranch;$4 = username;$5 = password
+# $1 = giturl; $2 = frombranch ;$3 = tobranch;$4 = username;$5 = password $6 = repo
 
 if [[ "$(git ls-remote --heads $1 $2 | wc -l)" == *"1"* ]]
 then
@@ -10,7 +10,7 @@ then
   
   echo "pushing the branch to remote repository...."
 
-  	if [[ "$(git push https://$3:$4@$5 $3 --porcelain)" == *"Done"* ]]
+  	if [[ "$(git push https://$4:$5@$6 $3 --porcelain)" == *"Done"* ]]
   	then
   		echo "ok"
     else
